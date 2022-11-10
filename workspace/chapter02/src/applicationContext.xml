@@ -16,14 +16,14 @@
 		<property name="qty" value="3"></property>
 	</bean>
 	
-	<!-- <bean id="add" class="sample02.CalcAdd">
+	<bean id="add" class="sample02.CalcAdd">
 		<constructor-arg index="0">
 			<value>25</value>
 		</constructor-arg>
 		<constructor-arg index="1">
 			<value>36</value>
 		</constructor-arg>
-	</bean> -->
+	</bean>
 	
 	<bean id="mul" class="sample02.CalcMul">
 		<property name="x">
@@ -32,12 +32,13 @@
 		<property name="y">
 			<value>36</value>
 		</property>
+		<!-- <property name="y" value="36"> -->
 	</bean>
 	
 	<bean id="sungJukImpl" class="sample03.SungJukImpl">
-		<!-- <constructor-arg>
-			<ref bean="sungJukDTO"/>
-		</constructor-arg> -->
+		<constructor-arg>
+			<ref bean="sungJukDTO"></ref>
+		</constructor-arg>
 	</bean>
 	
 	<bean id="sungJukDTO" class="sample03.SungJukDTO">
@@ -54,4 +55,24 @@
 			<value>95</value>
 		</property>
 	</bean>
+	
+	<!-- sample05 -->
+	
+	<bean id="list" class="java.util.ArrayList"></bean>
+	<bean id="helloSpring" class="sample05.HelloSpring"></bean>
+	<bean id="sungJukDTO2" class="sample05.SungJukDTO2" scope="prototype"></bean>
+	<bean id="sungJukInput" class="sample05.SungJukInput" scope="prototype">
+		<property name="list" ref="list"/>
+		<property name="sungJukDTO2" ref="sungJukDTO2"/>
+	</bean>
+	<bean id="sungJukOutput" class="sample05.SungJukOutput">
+		<property name="list" ref="list"/>
+	</bean>
+	<bean id="sungJukModify" class="sample05.SungJukModify">
+		<property name="list" ref="list"/>
+	</bean>
+	<bean id="sungJukDelete" class="sample05.SungJukDelete">
+		<property name="list" ref="list"/>
+	</bean>
+	
 </beans>

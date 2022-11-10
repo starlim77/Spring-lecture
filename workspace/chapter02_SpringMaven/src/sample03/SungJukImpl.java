@@ -2,16 +2,22 @@ package sample03;
 
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+//@AllArgsConstructor
+@Component
 public class SungJukImpl implements SungJuk {
 	
 	private SungJukDTO sungJukDTO;
-		
-//	public SungJukImpl(SungJukDTO sungJuckDTO) {
-//		this.sungJukDTO = sungJuckDTO;
-//	}
+	
+	@Autowired
+	public SungJukImpl(SungJukDTO sungJuckDTO) {
+		this.sungJukDTO = sungJuckDTO;
+	}
 	
 	@Override
 	public void calcTot() {

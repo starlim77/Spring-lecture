@@ -14,8 +14,8 @@ public class HelloSpring {
 		MessageBean messageBean = (MessageBean)context.getBean("messageBean"); //자식 = 부모
 		messageBean.sayHello("Spring");
 		
-		MessageBean messageBean2 = context.getBean("messageBean", MessageBean.class); //자식 = 부모
-		messageBean2.sayHello("Spring");
+		((MessageBean)context.getBean("messageBean")).sayHello("Spring"); //자식 = 부모
+//		messageBean2.sayHello("Spring");
 		
 	}
 }

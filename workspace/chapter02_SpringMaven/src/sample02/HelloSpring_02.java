@@ -11,11 +11,11 @@ public class HelloSpring_02 {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");	
 		
-		Calc calc = (Calc)context.getBean("add");
+		Calc calc = (Calc)context.getBean("calcAdd");
 		calc.calculate();
 		
-		calc = (Calc)context.getBean("mul");
-		//calc = context.getBean("add", CalcMul.class)
+		//calc = (Calc)context.getBean("calcMul");
+		calc = context.getBean("calcMul", CalcMul.class);
 		calc.calculate();
 		
 	}
