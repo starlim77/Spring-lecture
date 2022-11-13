@@ -21,13 +21,8 @@ public class SungJukModify implements SungJuk{
 		for(SungJukDTO2 sungJukDTO2 : list) {
 			if(sungJukDTO2.getName().equals(name)) {
 				
-				System.out.println(sungJukDTO2.getName()+"\t"
-						          +sungJukDTO2.getKor()+"\t"
-						          +sungJukDTO2.getEng()+"\t"
-						          +sungJukDTO2.getMath()+"\t"
-						          +sungJukDTO2.getTot()+"\t"
-						          +sungJukDTO2.getAvg()+"\t");
-				
+				System.out.println("이름\t국어\t영어\t수학\t합계\t평균");
+				System.out.println(sungJukDTO2);
 				
 				System.out.print("국어 입력 : ");
 				int kor = scan.nextInt();

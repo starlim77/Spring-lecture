@@ -8,9 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloSpring {
 	
-	private static ApplicationContext context;
+	ApplicationContext context;
 	
-	public void menu() {
+	public void menu(ApplicationContext context) {
 		while(true) {
 			Scanner scan = new Scanner(System.in);
 			System.out.println("**************");
@@ -43,8 +43,8 @@ public class HelloSpring {
 	
 	public static void main(String[] args) {
 		
-		context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		((HelloSpring) context.getBean("helloSpring")).menu();
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		((HelloSpring) context.getBean("helloSpring")).menu(context);
 		System.out.println("프로그램 종료");
 		
 		

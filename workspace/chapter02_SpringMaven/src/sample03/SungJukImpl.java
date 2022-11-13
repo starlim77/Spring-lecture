@@ -12,12 +12,13 @@ import lombok.AllArgsConstructor;
 @Component
 public class SungJukImpl implements SungJuk {
 	
+	@Autowired
 	private SungJukDTO sungJukDTO;
 	
-	@Autowired
-	public SungJukImpl(SungJukDTO sungJuckDTO) {
-		this.sungJukDTO = sungJuckDTO;
-	}
+//	@Autowired
+//	public SungJukImpl(SungJukDTO sungJuckDTO) {
+//		this.sungJukDTO = sungJuckDTO;
+//	}
 	
 	@Override
 	public void calcTot() {

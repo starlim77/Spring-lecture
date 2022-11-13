@@ -1,8 +1,6 @@
 package sample05;
 
 import java.util.Scanner;
-
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -10,9 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloSpring {
 	
-	private static ApplicationContext context;
-	
-	public void menu() {
+	public void menu(ApplicationContext context) {
 		while(true) {
 			Scanner scan = new Scanner(System.in);
 			System.out.println("**************");
@@ -45,8 +41,10 @@ public class HelloSpring {
 	
 	public static void main(String[] args) {
 		
-		context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		((HelloSpring) context.getBean("helloSpring")).menu();
+		
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		((HelloSpring) context.getBean("helloSpring")).menu(context);
 		System.out.println("프로그램 종료");
 		
 		
