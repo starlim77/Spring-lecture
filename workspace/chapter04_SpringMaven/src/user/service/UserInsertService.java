@@ -2,14 +2,14 @@ package user.service;
 
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
-@Component
+@Service // @Component 대신 @Service
 public class UserInsertService implements UserService {
 	@Autowired
 	private UserDTO userDTO;
