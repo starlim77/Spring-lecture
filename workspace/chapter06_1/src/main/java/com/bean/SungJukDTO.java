@@ -20,7 +20,7 @@ public class SungJukDTO {
 	
 	@Override
 	public String toString() {
-		String result = "***" + name + " 성적 ***" + "<br>" +
+		String result = "<h3>***" + name + " 성적 ***</h3>" + "<br>" +
 						"총점 : " + tot + "<br>" +"평균 : " + String.format("%.3f", avg);
 		return result;
 	}

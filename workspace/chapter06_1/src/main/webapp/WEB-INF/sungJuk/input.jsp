@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<!-- post 방식으로 한글을 넘기면 오류난다 -->
+<!-- <form action="result.do" method="post"> -->
 <form action="result.do" method="post">
 	<span>이름 : </span>
 	<input type="text" name="name">

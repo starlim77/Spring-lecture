@@ -12,18 +12,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.SungJukDTO;
 
-@Controller
+//@Controller
+@RequestMapping(value = "/sungJuk")
 public class SungJukController {
-	
+		
 	@RequestMapping(value = "/input.do", method = RequestMethod.GET)
+//	@RequestMapping(value = "/sungJuk/input.do", method = RequestMethod.GET)
 	public String input() {
-		return "input";
-	}
-	
+		return "sungJuk/input";
+	}	
+		
 	@RequestMapping(value = "/result.do", method = RequestMethod.POST)
+//	@RequestMapping(value = "/sungJuk/result.do", method = RequestMethod.POST)
 	public ModelAndView result(@ModelAttribute SungJukDTO sungJukDTO) {
 		
-		System.out.println(sungJukDTO.getName());
+//		System.out.println(sungJukDTO.getName());
 		sungJukDTO.calcTot();
 		sungJukDTO.calcAvg();
 		
@@ -32,5 +35,5 @@ public class SungJukController {
 		mav.setViewName("result");
 		
 		return mav;
-	}
+	}	
 }

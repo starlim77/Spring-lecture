@@ -27,7 +27,10 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value>
+				/WEB-INF/spring/appServlet/servlet-context.xml
+				/WEB-INF/spring/appServlet/mvc-context.xml
+			</param-value>
 		</init-param>
 	</servlet>
 	
@@ -36,7 +39,7 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
   	
-  	<servlet>
+  	<!-- <servlet>
 		<servlet-name>dispatcherServlet1</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -48,7 +51,7 @@
   	<servlet-mapping>
 		<servlet-name>dispatcherServlet1</servlet-name>
 		<url-pattern>/sungJuk/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
