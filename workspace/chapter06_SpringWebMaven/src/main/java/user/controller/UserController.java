@@ -1,11 +1,13 @@
 package user.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,7 @@ import user.service.UserService;
 
 @Component
 //@Controller
-@RequestMapping(value ="user") // /안넣어도 됨
+@RequestMapping(value ="user") //    /안넣어도 됨
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -36,12 +38,34 @@ public class UserController {
 	
 	@PostMapping(value = "getUser")
 	@ResponseBody
-	public String checkId(@RequestParam(required = false) String id) {
-		System.out.println("id = "+id);
+	public String checkId(@RequestParam String id) {
+//		System.out.println("id = "+id);
 		String isUser = userService.getUser(id);
-		System.out.println(isUser);
+//		System.out.println(isUser);
 		
 		return isUser;
 	}
 	
+	@GetMapping(value = "list")
+	public String list() {
+		return "user/list";
+	}
+	
+	@PostMapping(value = "getList")
+	@ResponseBody   // List를 json으로 자동으로 바꿔서 jQuery쪽으로 넘겨주게 된다.
+	public List<UserDTO> getList() {
+		return userService.getList();
+	}
+	
+	@RequestMapping(value = "updateForm")
+	public String updateForm() {
+		return "user/updateForm";
+	}
+	
+	@RequestMapping(value = "getUpdateUser")
+	@ResponseBody
+	public UserDTO getUpdateUser(@RequestParam String id) {
+		System.out.println(userService.getUpdateUser(id));
+		return userService.getUpdateUser(id);
+	}
 }

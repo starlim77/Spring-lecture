@@ -10,18 +10,29 @@ table, table td{
 	border: 1px solid black;
 	text-align: center;
 }
-#writeForm div{
+#writeForm div, #updateIdDiv{
 	color : red;
 	font-size: 8pt;
 	font-weight: bold;
+}
+
+#writeForm{
+	display:none;
+}
+#id{
+	color:gray;
 }
 </style>
 </head>
 <body>
 <h1>
 	<img alt="" src="../image/cat.jpg" onclick="location.href='../';" style="cursor:pointer; width:100px;">
-	회원가입
+	정보수정
 </h1>
+수정할 아이디 입력 : 
+<input type="text" name="updateId" id="updateId">
+<div id="updateIdDiv"></div>
+<br>
 <form id="writeForm" method="post" action="/chapter06_SpringWebMaven/user/write">
 	<table>
 		<tr>
@@ -34,7 +45,7 @@ table, table td{
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="id" id="id">
+				<input type="text" name="id" id="id"  readonly="readonly">
 				<div id="idDiv"></div>
 			</td>
 		</tr>
@@ -47,14 +58,14 @@ table, table td{
 		</tr>
 		<tr>
 			<td>
-				<input type="button" value="등록" id="signUpBtn"/>
-				<input type="reset" value="취소" />
+				<input type="button" value="수정" id="updateBtn"/>
+				<input type="reset" value="취소" id="resetBtn"/>
 			</td>
 		</tr>
 	</table>
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript" src="../js/write.js"></script>
+<script type="text/javascript" src="../js/update.js"></script>
 </body>
 </html>

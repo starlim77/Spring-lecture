@@ -26,6 +26,7 @@ $("#signUpBtn").click(function(){
 			data : $("#writeForm").serialize(),
 			success : function(){
 				alert("회원가입을 축하합니다");
+				location.href="/chapter06_SpringWebMaven/user/list";
 			},
 			error : function(err){
 				console.log(err);
@@ -40,14 +41,15 @@ $("#id").focusout(function(){
 		$.ajax({
 				type : "post",
 				url : "/chapter06_SpringWebMaven/user/getUser",
-			//	data : "id="+$("#id").val(),
 				data : {"id" : $("#id").val()}, 
 				dataType : "text",
 				success : function(data){
+					console.log(data);
 					if(data == "YES"){
 						$("#idDiv").text("이미 존재하는 아아디입니다");
 					}else{
 						$("#idDiv").text("사용 가능한 아아디입니다");
+						$("#idDiv").css("color","blue");
 					}
 				},
 				error : function(err){

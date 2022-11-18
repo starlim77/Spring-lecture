@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Component
 public class MainController {
 	
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/")
 	public String index(HttpServletRequest request) {
 		return "index";
 	}
