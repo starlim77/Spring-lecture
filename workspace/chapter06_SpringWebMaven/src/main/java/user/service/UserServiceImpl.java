@@ -32,6 +32,16 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUpdateUser(String id) {
 		return userDAO.getUpdateUser(id);
 	}
+
+	@Override
+	public void update(UserDTO userDTO) {
+		userDAO.update(userDTO);
+	}
+
+	@Override
+	public void delete(String id) {
+		userDAO.delete(id);
+	}
 	
 	
 }

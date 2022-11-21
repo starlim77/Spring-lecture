@@ -33,7 +33,7 @@ table, table td{
 <input type="text" name="updateId" id="updateId">
 <div id="updateIdDiv"></div>
 <br>
-<form id="writeForm" method="post" action="/chapter06_SpringWebMaven/user/write">
+<form id="updateForm">
 	<table>
 		<tr>
 			<td>이름</td>

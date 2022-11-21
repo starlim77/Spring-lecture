@@ -68,4 +68,22 @@ public class UserController {
 		System.out.println(userService.getUpdateUser(id));
 		return userService.getUpdateUser(id);
 	}
+	
+	@PostMapping(value = "update")
+	@ResponseBody
+	public void update(@ModelAttribute UserDTO userDTO) {
+		userService.update(userDTO);
+	}
+	
+	@GetMapping(value = "deleteForm")
+	public String deleteForm() {
+		return "user/deleteForm";
+	}
+	
+	@RequestMapping(value ="delete")
+	@ResponseBody
+	public void delete(@RequestParam String id) {
+		userService.delete(id);
+	}
+	
 }

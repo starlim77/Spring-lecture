@@ -33,3 +33,35 @@ $("#resetBtn").click(function(){
 	//강제 이벤트 발생
 	$("#updateId").trigger("focusout");
 });
+
+//수정 버튼 클릭
+$("#updateBtn").click(function(){
+
+	var name = $("#name").val();
+	var pwd = $("#pwd").val();
+	var sw = 0;
+	if(!pwd){
+		$("#pwdDiv").text("비밀번호를 입력하세요");
+		$("#pwd").focus()
+		sw = 1;
+	}
+	if(!name){
+		$("#nameDiv").text("이름을 입력하세요");
+		$("#name").focus();
+		sw = 1;
+	}
+	if(sw==1) return;
+	
+	$.ajax({
+		type:"post",
+		url:"/chapter06_SpringWebMaven/user/update",
+		data:$("#updateForm").serialize(),
+		success:function(){
+			alert("회원님의 정보를 수정하였습니다");
+			location.href="/chapter06_SpringWebMaven/user/list";
+		}
+		,error:function(err){
+			console.log(err);
+		}
+	});
+});

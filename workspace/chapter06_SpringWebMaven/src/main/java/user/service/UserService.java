@@ -13,5 +13,9 @@ public interface UserService {
 	public List<UserDTO> getList();
 
 	public UserDTO getUpdateUser(String id);
+
+	public void update(UserDTO userDTO);
+
+	public void delete(String id);
 	
 }
