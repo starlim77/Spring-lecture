@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import user.bean.UserDTO;
 import user.service.UserService;
 
-@Component
-//@Controller
+@Component // or @Controller
 @RequestMapping(value ="user") //    /안넣어도 됨
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
 	

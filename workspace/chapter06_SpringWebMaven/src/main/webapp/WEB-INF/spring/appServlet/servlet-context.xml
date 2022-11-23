@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
@@ -12,9 +13,16 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<bean id="multipartResolver" 
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+       p:maxUploadSize="5000000" /><!-- property 최대 용량 5MB -->
+	
+	<!-- Spring Web MVC를 하기 위해 설정해야 하는 값들을 자동으로 추가해준다 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
+	
 	<mvc:resources mapping="/image/**" location="/WEB-INF/image/" /> 
 	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+	<mvc:resources mapping="/storage/**" location="/WEB-INF/storage/" />
 	
 	
 	<!-- <bean id="mainController" class="main.controller.MainController"></bean> -->

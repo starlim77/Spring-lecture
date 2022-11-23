@@ -7,4 +7,6 @@
 
 	<context:component-scan base-package="spring.conf"></context:component-scan>
 	
+	<context:component-scan base-package="user"></context:component-scan>
+	
 </beans>
