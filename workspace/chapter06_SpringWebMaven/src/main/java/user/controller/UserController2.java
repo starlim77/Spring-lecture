@@ -46,7 +46,7 @@ public class UserController2 {
 //		}
 //	}
 	
-	
+//  name = "img" 1개 일 때	
 //	@PostMapping(value = "upload")
 //	@ResponseBody
 //	public String uploda(@RequestParam MultipartFile upload, HttpSession session) { 
@@ -130,6 +130,31 @@ public class UserController2 {
 		}//for
 	}
 	
+
+//  name = "img" 1개 일 때	
+	@RequestMapping(value = "upload2", produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String upload2(@RequestParam MultipartFile upload, HttpSession session) { 
+		//form 안의 name 값과 변수명이 일치해야한다
+		
+		//실제폴더
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
+		System.out.println("실제 폴더 위치 = " + filePath);
+		
+		String fileName = upload.getOriginalFilename();
+		
+		File file = new File(filePath, fileName);
+		
+		try {
+		    //FileCopyUtils.copy(upload.getInputStream(), new FileOutputStream(file)); //복사
+			upload.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "<img src='../storage/" + fileName + "' width='300' height='300'/>";
+		
+	}
 	
 	
 }
